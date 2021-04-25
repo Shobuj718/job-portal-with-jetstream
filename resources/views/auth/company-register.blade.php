@@ -9,12 +9,12 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <h1 class="text-center text-xl">User Registration</h1>
+            	<h1 class="text-center text-xl">Register Your Company</h1>
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                <input type="hidden" name="type" value="employee">
+                <input type="hidden" name="type" value="company">
             </div>
 
             <div class="mt-4">

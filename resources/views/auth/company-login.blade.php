@@ -15,12 +15,12 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <h1 class="text-center text-xl">User Login</h1>
+            <h1 class="text-center text-xl">Company Login</h1>
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-                <input type="hidden" name="type" value="employee">
+                <input type="hidden" name="type" value="company">
             </div>
 
             <div class="mt-4">
