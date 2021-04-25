@@ -71,6 +71,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
+                    @if(auth()->check())
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -120,6 +121,16 @@
                             </form>
                         </x-slot>
                     </x-jet-dropdown>
+
+                    @else
+
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        @endif
+
+                    @endif
                 </div>
             </div>
 
@@ -143,6 +154,7 @@
             </x-jet-responsive-nav-link>
         </div>
 
+        @if(auth()->check())
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -213,5 +225,17 @@
                 @endif
             </div>
         </div>
+
+        @else
+
+            <x-jet-responsive-nav-link href="{{ route('login') }}" >
+                    Login
+            </x-jet-responsive-nav-link>
+            
+            <x-jet-responsive-nav-link href="{{ route('register') }}" >
+                    Register
+            </x-jet-responsive-nav-link>
+
+        @endif
     </div>
 </nav>
